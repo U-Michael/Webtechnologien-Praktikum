@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title>Suchdialog</title>
+        <style>
+
+            body{
+                background-color: lightyellow;
+            }
+
+            .format{
+                margin:20px;
+            }
+
+            .style_1{
+                background-color: lightgray;
+                border:1px solid black;
+                margin:20px;
+                padding:20px;
+            }
+
+            #adressen{
+                width: 100%;
+                border:1px solid black;
+                border-collapse:collapse;
+            }
+
+            #adressen th{
+                background-color: rgb(74, 95, 109);
+                color:white;
+                text-align:left;
+            }
+
+            #adressen tr:nth-child(even){
+                background-color:white;
+            }
+
+            #adressen tr:nth-child(odd) {
+                background-color:lightblue;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <P class="format">Adressen suchen</P>
+        <div class="style_1">
+            <label for='das'>Name:</label>
+            <input type='text' id='name' name='name'>
+            <label for='etwas'>Ort:</label>
+            <input type='text' id='ort' name='ort'>
+            <label for='sortierung'>Sortierung:</label>
+            <select id='sortierung'>
+            <option value='Ort' selected>Ort</option>
+            </select>
+            <button type="button"><img src="Luppe.png" alt="Luppebutton" width="20" height="15"></button>
+        </div>
+
+        <p class="format">Gefundene Adressen</p>
+        <div class="style_1">
+            <a href='Anlegungsdialog.html'><button type="button"><img src="Plus.png" alt="Plusbutton" width="20" height="15"></button></a>
+            <table id='adressen'>
+                <tr>
+                    <th>Name</th>
+                    <th>E-Mail</th>
+                    <th>Ort</th>
+                    <th>PLZ</th>
+                    <th>Stasse + Nummer</th>
+                    <th>Aktion</th>
+                </tr>
+                <tr>
+                    <td>Maier,Peter</td>
+                    <td>maier@online.de</td>   
+                    <td>Ingolstadt</td>
+                    <td>85051</td>
+                    <td>Haunwöhrerstrasse 1234</td>
+                    <td><a href='Bearbeitungsdialog.html'><button type="button"><img src="Stift.png" alt="Stiftbutton" width="20" height="15"> </button><button type="button"><img src="Mülleimer.png" alt="Mülleimerbutton" width="20" height="15"></src></button></a></td>
+                </tr>
+                <tr>
+                    <td>Müller,Ema</td>
+                    <td>mueller@online.de</td>
+                    <td>Ingolstadt</td>
+                    <td>85051</td>
+                    <td>Am Stadtplatz 1234</td>
+                    <td><a href='Bearbeitungsdialog.html'><button type="button"><img src="Stift.png" alt="Stiftbutton" width="20" height="15"> </button><button type="button"><img src="Mülleimer.png" alt="Mülleimerbutton" width="20" height="15"></src></button></a></td>                    
+                </tr>
+                <tr>
+                    <td>Schmid,Evelyn</td>
+                    <td>schmid@online.de</td>
+                    <td>München</td>
+                    <td>83676</td>
+                    <td>Oktoberfestweg 41</td>
+                    <td><a href='Bearbeitungsdialog.html'><button type="button"><img src="Stift.png" alt="Stiftbutton" width="20" height="15"> </button><button type="button"><img src="Mülleimer.png" alt="Mülleimerbutton" width="20" height="15"></src></button></a></td>
+                </tr>
+
+            </table>
+        </div>
+      
+
+    </body>
+</html>
