@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <meta charset="UTF8">
+		<title>Adressverwaltung</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="js/AdresseDTO.js"></script>
+        <script src="js/AdressenDAO.js"></script>
+        <script src="js/adressverwaltung.js"></script>
+	</head>
+	<body  onload="belegeAdressenTabelle();">
+        <div class="blattZentriert">
+            <fieldset class="adressSearchFieldset">
+                <legend>Adressen suchen</legend>
+                <label>
+                    <span>Name</span>
+                    <input name="name" type="text" value="" size="30"/>
+                </label>
+                <label>
+                    <span>Ort</span>
+                    <input name="ort" type="text" value="" size="30"/>
+                </label>
+                <label>
+                    <span>Sortierung</span>
+                    <select  id="sortierungID">
+                        <option>Name</option>
+                        <option>PLZ</option>
+                        <option  selected>Ort</option>
+                    </select>
+                </label>
+                <button onclick="belegeAdressenTabelle();">
+                    <img src="images/search.jpg" width="15" height="15">
+                </button>
+            </fieldset>
+            
+            <form>
+                <fieldset class="adressSearchFieldset">
+                    <legend>Gefundene Adressen</legend>
+                    <button type="submit"  onclick="neueAdresseAnlegen()">
+                        <img src="images/plus.jpg" width="15" height="15">
+                    </button>
+                    <table id="adressenTabelle" class="adressenTable">
+                        <tr>
+                            <th>Name</th>
+                            <th>E-Mail</th>
+                            <th>Ort</th>
+                            <th>PLZ</th>
+                            <th>Strasse + Nummer</th>
+                            <th>Aktion</th>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+	</body>
+</html>

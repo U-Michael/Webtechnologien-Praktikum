@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF8">
+		<title id="titleID">...</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="js/AdresseDTO.js"></script>
+        <script src="js/AdressenDAO.js"></script>
+        <script src="js/adressverwaltung.js"></script>
+	</head>
+	<body onload="initialisiereSeite()">
+		<div class="blattZentriert form-style-2">
+			<fieldset class="adressNewFieldset">
+				<legend id="ueberschriftID">Neue Adresse anlegen</legend>
+				<form action="SuchDialog.html" method="POST">
+					<input type="hidden" value="-1" id="id">
+					<label>
+						<span>Name:</span>
+						<input type="text" size="30" id="name">
+					</label>
+					<label>
+						<span>E-Mail:</span>
+						<input type="email" size="30" id="email">
+					</label>
+					<label>
+						<span>Postleitzahl:</span>
+						<input type="number" size="30" id="plz">
+					</label>
+					<label>
+						<span>Ort:</span>
+						<input type="text" size="30" id="ort">
+					</label>
+					<label>
+						<span>Strasse und Hausnummer:</span>
+						<input type="text" size="30" id="strasse">
+					</label>
+					<p/>
+					<div align="center">
+						<a href="SuchDialog.html">
+							<input type="button" value="abbrechen">
+						</a>
+						<input type="button" value="speichern" onclick="speichereAdresse()">
+					</div>
+				</form>
+			</fieldset>
+		</div>
+	</body>
+</html>
