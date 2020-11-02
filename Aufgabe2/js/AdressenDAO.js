@@ -52,12 +52,9 @@ class AdressenDAO {
 	 */
 	filter(adresse, name, ort) {
 		// *** (2) ***
-		if(adresse.name.startsWith(name) || adresse.ort.startsWith(ort)){
-			return true;
-		} else {
-			return false;
+
+		return((!name || adresse.name.startsWith(name)) && (!ort || adresse.ort.startsWith(ort)))
 		}
-	};	
 	
 	/**
 	 * Gibt das übergebene AdresseDTO-Array 'liste'' sortiert nach 'sortierung' (= string-Wert 
@@ -66,17 +63,18 @@ class AdressenDAO {
 	 */
 	sortiereAdressenListe(liste, sortierung) {
 		// *** (3) ***
-		if(sortierung="name"){
-			return liste.sort();
-		}
+		switch(sortierung) {
+            case 'Name':
+                liste.sort((a, b) => (a.name < b.name) ? 1 : -1)
+                break;
+            case 'Ort':
+                liste.sort((a, b) => (a.ort < b.ort) ? 1 : -1)
+                break;
+            case 'PLZ':
+                liste.sort((a, b) => b.plz - a.plz)
+                break;
+        }
 
-		if(sortierung="ort"){
-			return liste.sort();
-		}
-
-		if(sortierung="plz"){
-			return liste.sort(function (a,b){return a-b});
-		}
 	}
 
 	/*
@@ -121,7 +119,7 @@ class AdressenDAO {
 				}
 			}
 		}
-				
+		console.log(ergebnis);		
 		this.sortiereAdressenListe(ergebnis, sortierung);
 		return ergebnis;
 	}
@@ -154,6 +152,10 @@ class AdressenDAO {
 	 */
 	loescheAdresse(id) {
 		// *** (4) ***
+		this.laden();
+		this._adressenArray[id].id = -1 ;
+		this.speichern();
+		
 	}
 
 	/*

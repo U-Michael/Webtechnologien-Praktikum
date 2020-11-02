@@ -23,11 +23,11 @@ function neueAdresseAnlegen() {
 	window.open("NeueAdresse.html?mode=new");
 }
 
-function bearbeiteAdresse(button) { 
+function bearbeiteAdresse(edit_button) { 
 	var url = "NeueAdresse.html?mode=edit";
 	
 	try {
-		var row = button.parentNode.parentNode;
+		var row = edit_button.parentNode.parentNode;
 		
 		url += "&id=" + row.cells[0].innerHTML;
 		url += "&name=" + row.cells[1].innerHTML;
@@ -86,29 +86,30 @@ function belegeZeile(table, adresse) {
 
 
 	// edit button
-	var button = document.createElement('button');
-	button.onclick = function() {
+	td = tr.insertCell(6);
+	var edit_button = document.createElement('button');
+	edit_button.onclick = function() {
 		bearbeiteAdresse(this);
 	};
-	var image = document.createElement('img');
-	image.src = "images/editIcon.jpg";
-	image.width = "15";
-	image.height = "15";
-	button.appendChild(image);
-	td.appendChild(button);
+	var edit_image = document.createElement('img');
+	edit_image.src = "images/editIcon.jpg";
+	edit_image.width = "15";
+	edit_image.height = "15";
+	edit_button.appendChild(edit_image);
+	td.appendChild(edit_button);
 	// delete button
 
 	// *** (6) ***
 	var del_button = document.createElement('button');
-	button.onclick = function() {
+	del_button.onclick = function() {
 		loescheAdresse(this);
 	}
 
 	var del_image = document.createElement('img');
-	image.src = "images/trashIcon.jpg";
-	image.width = "15";
-	image.height = "15";
-	button.appendChild(del_image);
+	del_image.src = "images/trashIcon.jpg";
+	del_image.width = "15";
+	del_image.height = "15";
+	del_button.appendChild(del_image);
 	td.appendChild(del_button);
 
 }
@@ -119,9 +120,9 @@ function belegeAdressenTabelle() {
 	
 		var table = document.getElementById("adressenTabelle");
 		var adressen = adressenDAO.findeZuFilterUndSortiere(
-			document.getElementById('nameID').value,
-			document.getElementById('ortID').value,
-			document.getElementById('sortierungID').value);
+			document.getElementById('name').value,
+			document.getElementById('ort').value,
+			document.getElementById('sortierung').value);
 		var i;
 
 		while (table.rows.length > 1) {
@@ -176,20 +177,20 @@ function initialisiereSeite() {
     var bearbeitenText = "Adresse bearbeiten";
     
     if (modeParts[0] == "mode=new") {
-        document.getElementById("titleID").innerHTML = newText;
-        document.getElementById("ueberschriftID").innerHTML = newText;
-        document.getElementById("idID").value="-1";
+        document.getElementById("title").innerHTML = newText;
+        document.getElementById("ueberschrift").innerHTML = newText;
+        document.getElementById("id").value="-1";
     } else {
-        document.getElementById("titleID").innerHTML = bearbeitenText;
-        document.getElementById("ueberschriftID").innerHTML = bearbeitenText;
-        document.getElementById("idID").value = modeParts[1].split("=")[1];
-        document.getElementById("nameID").readonly = true;
-        document.getElementById("nameID").disabled = true;
-        document.getElementById("nameID").value = modeParts[2].split("=")[1];
-        document.getElementById("emailID").value = modeParts[3].split("=")[1];
-        document.getElementById("ortID").value = modeParts[4].split("=")[1];
-        document.getElementById("plzID").value = modeParts[5].split("=")[1];
-        document.getElementById("strasseID").value = modeParts[6].split("=")[1];
+        document.getElementById("title").innerHTML = bearbeitenText;
+        document.getElementById("ueberschrift").innerHTML = bearbeitenText;
+        document.getElementById("id").value = modeParts[1].split("=")[1];
+        document.getElementById("name").readonly = true;
+        document.getElementById("name").disabled = true;
+        document.getElementById("name").value = modeParts[2].split("=")[1];
+        document.getElementById("email").value = modeParts[3].split("=")[1];
+        document.getElementById("ort").value = modeParts[4].split("=")[1];
+        document.getElementById("plz").value = modeParts[5].split("=")[1];
+        document.getElementById("strasse").value = modeParts[6].split("=")[1];
     }
 }
 
