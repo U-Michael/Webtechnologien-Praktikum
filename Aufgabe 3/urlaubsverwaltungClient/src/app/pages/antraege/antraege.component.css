@@ -1,0 +1,86 @@
+.antraege-bearbeiten-container {
+    margin-top: 20px;
+    width: 1100px;
+}
+
+.antraege-bearbeiten-container .panel {
+    border: 1px solid lightgray;
+}
+
+.antraege-bearbeiten-container .panel-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.antraege-bearbeiten-container form {
+    padding: 20px 20px 0px 20px;
+}
+
+.antraege-bearbeiten-container .panel-footer {
+    text-align: center;
+}
+
+.antraege-bearbeiten-container .btn-xs {
+    width: 150px;
+}
+
+.antraege-bearbeiten-container p {
+    text-align: right;
+    padding: 0px;
+    margin: 0px;
+}
+
+.keine-antraege {
+    padding: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.antragsteller-spalte {
+    width: 300px;
+}
+
+.btn-genehmigen {
+    width: 120px;
+    background-color: greenyellow;
+}
+
+.btn-ablehnen {
+    width: 100px;
+    background-color: orangered;
+}
+
+.btn-loeschen {
+    width: 100px;
+    background-color: orangered;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.neu-panel {
+    text-align: left;
+}
+
+.neu-button {
+    display: block;
+    margin: 5px;
+}
+
+span.titel {
+    font-size: 18px;
+    font-weight: bold;
+    float: left;
+}
+
+span.begruessung {
+    margin-right: 20px;
+}
+
+.btn:disabled {
+    background-color: lightgray;
+}

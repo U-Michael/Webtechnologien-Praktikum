@@ -1,0 +1,26 @@
+.login-container {
+    margin-top: 20px;
+}
+
+.login-panel {
+    border: 1px solid black;
+    width: 500px;
+}
+
+.login-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.message {
+    color: red;
+    padding: 0px 15px 15px 15px;
+}
+
+.login-form {
+    padding: 20px 20px 0px 20px;
+}
+
+.error-message {
+    color: red;
+}

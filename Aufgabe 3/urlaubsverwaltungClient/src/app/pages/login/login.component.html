@@ -1,0 +1,37 @@
+<div class="container login-container">
+    <div class="panel panel-default login-panel">
+        <div class="panel-header login-header">Login</div>
+        <div class="panel-body">
+            <form class="form-horizontal login-form" role="form" #loginForm="ngForm">
+                <div class="form-group row">
+                    <label class="control-label col-sm-4" for="benutzername">Benutzername</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="benutzername" [(ngModel)]="benutzername" required #username="ngModel" value="">
+                    </div>
+                    <div [hidden]="username.pristine || username.valid" class="error-message">
+                        Der Benutzername darf nicht leer sein!
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-4" for="passwort">Passwort</label>
+                    <div class="col-sm-8">
+                        <input type="password" name="passwort" [(ngModel)]="passwort" required #pwd="ngModel">
+                    </div>
+                    <div [hidden]="pwd.pristine || pwd.valid" class="error-message">
+                        Das Passwort darf nicht leer sein!
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-block btn-primary app-btn" (click)="login(loginForm)" [disabled]="!loginForm.valid">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <div class="message">
+                {{ message }}
+            </div>
+        </div>
+    </div>
+</div>

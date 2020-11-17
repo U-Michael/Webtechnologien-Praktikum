@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+.app-btn {
+    background-color: gray !important;
+    border-color: black !important;
+}
+
+.app-btn:hover {
+    background-color: lightgray !important;
+}
+
+.app-btn:disabled {
+    background-color: lightgray !important;
+}
