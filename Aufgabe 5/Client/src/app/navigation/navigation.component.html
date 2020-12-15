@@ -1,0 +1,15 @@
+<div class="navigation">
+    <span class="mr-4">{{ 'Hallo ' + kunde.benutzername + '!' }}</span>
+    <button type="button" class="btn btn-default" (click)="artikelliste()">
+        <span class="oi" data-glyph="basket"></span>
+    </button>
+    <button type="button" class="btn btn-default" (click)="zumWarenkorb()">
+        <span class="oi" data-glyph="cart"></span>
+    </button>
+    <button type="button" class="btn btn-default" (click)="kasse()" [disabled]="warenkorb != null && warenkorb.positionen.length == 0">
+        <span class="oi" data-glyph="dollar"></span>
+    </button>
+    <button type="button" class="btn btn-default" (click)="logout()">
+        <span class="oi" data-glyph="account-logout"></span>
+    </button>
+</div>

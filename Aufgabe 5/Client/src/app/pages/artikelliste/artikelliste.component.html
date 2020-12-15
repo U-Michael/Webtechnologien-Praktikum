@@ -1,0 +1,30 @@
+<div class="container page-container">
+    <app-navigation></app-navigation>
+
+    <div class="container artikelliste-container">
+        <h3 class="mb-4 mt-4">Unsere Artikel</h3>
+        <!-- Sortierte Auflistung der Artikel als Bootstrap cards -->
+        
+        <div class="card mb-2 artikel-card" *ngFor="let artikel of artikellisteSorted; let i = index">
+            <div class="card-body">
+                <h4 class="card-title">{{ artikel.kurzText }}</h4>
+                <div class="form-row">{{ artikel.beschreibung }}</div>
+                <div class="form-row">Preis: {{ artikel.preis }} &nbsp;
+                    <span class="oi" data-glyph="euro"></span>
+                </div>
+                <div class="form-row mt-4">
+                    <div class="col-2">
+                        <input type="number" class="form-control" [(ngModel)]="anzahlen[i]" required min="1">
+                    </div>
+                    <div class="col-10">
+                        <button type="button" class="btn btn-secondary" (click)="inWarenkorb(i)">
+                            In den Warenkorb
+                        </button>
+                    </div>
+                    <div class="nachricht mt-2"> {{ nachricht[i] }}</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

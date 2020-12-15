@@ -1,0 +1,12 @@
+.navigation {
+    float: right;
+    vertical-align: center;
+}
+
+.navigation > .btn {
+    background-color: white;
+}
+
+.navigation > .btn:hover {
+    border-color: lightgray;
+}

@@ -1,0 +1,40 @@
+/* nach Auto-Ausfüllen bleibt die gelbe Farbe, wird hiermit auf weiss gesetzt */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.warenkorb-container {
+    padding-top: 80px;
+    max-width: 700px;
+}
+
+.menge-eingabe {
+    width: 70px;
+    display: inline-flex;
+    height: 30px;
+}
+
+.warenkorb-tabelle-heading {
+    font-weight: bold;
+}
+
+.warenkorb-tabelle-footer {
+    font-weight: bold;
+}
+
+.leerer-warenkorb {
+    margin: 20px;
+}
+
+.artikel-label {
+    width: 200px;
+    display: inline-flex;
+}
+
+.artikel-wert {
+    display: inline;
+}
+
+.artikel-titel {
+    font-weight: bold;
+}

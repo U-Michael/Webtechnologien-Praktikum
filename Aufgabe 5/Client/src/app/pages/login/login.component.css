@@ -1,0 +1,22 @@
+/* nach Auto-Ausfüllen bleibt die gelbe Farbe, wird hiermit auf weiss gesetzt */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.login-container {
+    max-width: 400px;
+}
+
+.validationMessage {
+    color: red;
+}
+
+.login-button:disabled {
+    color: darkgray;
+}
+
+.container > h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}

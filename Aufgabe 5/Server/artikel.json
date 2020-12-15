@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "kurzText": "Milch",
+        "beschreibung": "1L H-Milch 3,5% Fett",
+        "preis": "0.80"
+    },
+    {
+        "id": 2,
+        "kurzText": "Butter",
+        "beschreibung": "250gr. Markenbutter",
+        "preis": "1.80"
+    },
+    {
+        "id": 3,
+        "kurzText": "Essig",
+        "beschreibung": "1L Balsamico-Essig",
+        "preis": "2.80"
+    }
+]

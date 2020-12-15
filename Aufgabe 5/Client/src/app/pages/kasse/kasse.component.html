@@ -1,0 +1,43 @@
+<div class="container page-container">
+    <app-navigation></app-navigation>
+    <div *ngIf="warenkorb !== undefined && kunde !== undefined" class="container kasse-container">
+        <h5>Checkout</h5>
+        <div *ngIf="warenkorb.positionen.length === 0">
+            Der Warenkorb ist leer.
+        </div>
+        <div *ngIf="warenkorb.positionen.length > 0">
+            <div id="content">
+                <table class="table">
+                    <thead class="warenkorb-tabelle-heading">
+                        <tr>
+                            <td>Nr</td>
+                            <td>Artikel</td>
+                            <td>Preis</td>
+                            <td>Anzahl</td>
+                            <td>Preis Position</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let position of warenkorb.positionen; let i = index;">
+                            <td>{{ position.nr }}</td>
+                            <td>{{ artikelService.artikelProperty(position.artikelId, 'kurzText') }}</td>
+                            <td>{{ artikelService.artikelPreis(position.artikelId) | number : '1.2-2' }}</td>
+                            <td>{{ position.menge }}</td>
+                            <td>{{ preisZuPosition(position) | number : '1.2-2' }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="warenkorb-tabelle-footer">
+                        <tr>
+                            <td colspan="4">Gesamtpreis</td>
+                            <td>{{ gesamtpreis() | number : '1.2-2' }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button type="button" class="btn btn-primary logout-button" (click)="bezahlen()">
+                    Bezahlen
+                </button>
+                <div class="nachricht mt-4 mb-4">{{ nachricht }}</div>
+            </div>
+        </div>
+    </div>
+</div>

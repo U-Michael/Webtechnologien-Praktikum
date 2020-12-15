@@ -1,0 +1,11 @@
+.artikelliste-container {
+    padding-top: 80px;
+    max-width: 600px;}
+
+.nachricht {
+    color: red;
+}
+
+.artikel-card {
+    background-color: aliceblue;
+}

@@ -1,0 +1,90 @@
+<div class="container page-container">
+    <app-navigation></app-navigation>
+    <div *ngIf="warenkorb !== undefined && kunde !== undefined" class="container warenkorb-container">
+        <h4>Warenkorb für {{ kunde.name }}</h4>
+        <div id="content">
+            <div *ngIf="warenkorb.positionen.length !== 0">
+                <form class="form-horizontal" role="form">
+                    <table class="table table-striped table-hover">
+                        <thead class="warenkorb-tabelle-heading">
+                            <tr>
+                                <td>Nr</td>
+                                <td>Artikel</td>
+                                <td>Preis</td>
+                                <td>Anzahl</td>
+                                <td>Preis Position</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let position of warenkorb.positionen; 
+                                    let i = index;">
+                                <td>{{ position.nr }}</td>
+                                <td>
+                                    {{ artikelService.artikelProperty(position.artikelId, 'kurzText') }}
+                                </td>
+                                <td>{{ artikelService.artikelProperty(position.artikelId, 'preis') | number : '1.2-2' }}</td>
+                                <td>
+                                    <input type="number" class="form-control menge-eingabe" [(ngModel)]="position.mengeNeu"
+                                        min="1" max="99" name="{{'menge' + position.nr}}">
+                                    <button type="button" class="btn btn-default btn-sm" (click)="neuerPreis(position)">
+                                        <span class="oi" data-glyph="reload"></span>
+                                    </button>
+                                </td>
+                                <td>{{ preisZuPosition(position) | number : '1.2-2' }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-sm" name="Button"
+                                        (click)="gibArtikelDetails(position.artikelId)" data-toggle="modal"
+                                        data-target="#artikelDialog">
+                                        <span class="oi" data-glyph="magnifying-glass"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm" (click)="loeschePosition(i)">
+                                        <span class="oi" data-glyph="trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="warenkorb-tabelle-footer">
+                            <tr>
+                                <td colspan="4">Gesamtpreis</td>
+                                <td>{{ gesamtpreis() | number : '1.2-2' }}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+            <div *ngIf="warenkorb.positionen.length === 0">
+                Der Warenkorb ist leer.
+            </div>
+        </div>
+    </div>
+
+    <div id="artikelDialog" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="artikel-titel">Details zu Artikel {{ artikel.kurzText }}</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="artikel-label">Id:</div>
+                        <div class="artikel-wert">{{ artikel.id }}</div>
+                    </div>
+                    <div>
+                        <div class="artikel-label">Beschreibung:</div>
+                        <div class="artikel-wert">{{ artikel.beschreibung }}</div>
+                    </div>
+                    <div>
+                        <div class="artikel-label">Preis:</div>
+                        <div class="artikel-wert">{{ artikel.preis }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

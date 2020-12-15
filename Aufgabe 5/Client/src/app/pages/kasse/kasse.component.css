@@ -1,0 +1,20 @@
+.warenkorb-tabelle-heading {
+    font-weight: bold;
+}
+
+.warenkorb-tabelle-footer {
+    font-weight: bold;
+}
+
+.bezahlen-button {
+    width: 100%;
+}
+
+.kasse-container {
+    padding-top: 80px;
+    max-width: 600px;
+}
+
+.nachricht {
+    color: red;
+}
